@@ -1,3 +1,6 @@
+# made by Mose Gu
+# http://cpslab.skku.edu/people-Moses-Gu.php
+
 import requests
 import re
 from selenium import webdriver
