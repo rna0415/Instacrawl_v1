@@ -9,3 +9,5 @@ Crawl caption and hashtag within your search and post numbers.
 다운받은 크롬 드라이버를 같은 디렉토리로 옮기세요.
 
 코드실행후 크롤링할 키워드와 포스트 갯수를 입력하세요.
+
+라이브포스트크롤링은 개발에 활용될 코드로 텍스트파일로 출력되지않습니다.
