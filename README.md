@@ -10,4 +10,4 @@ Crawl caption and hashtag within your search and post numbers.
 
 코드실행후 크롤링할 키워드와 포스트 갯수를 입력하세요.
 
-라이브포스트크롤링은 개발에 활용될 코드로 텍스트파일로 출력되지않습니다.
+라이브포스트분석은 개발에 활용될 코드로 텍스트파일로 출력되지않습니다.
