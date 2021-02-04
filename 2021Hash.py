@@ -10,8 +10,8 @@ import unicodedata
 
 driver = webdriver.Chrome('chromedriver')
 
-search_word = input('Keyword: ')
-tag_n = input('Post_Number: ')
+search_word = input('Keyword: ') #키워드 검색
+search_n = input('Post_Number: ') #크롤링할 포스트 갯수 지정
 
 baseUrl = 'https://www.instagram.com/explore/tags/' + search_word + '/'
 
@@ -20,10 +20,10 @@ driver.implicitly_wait(5)
 front_url = 'https://www.instagram.com/'
 driver.get(front_url)
 # to input ID
-driver.find_element_by_name('username').send_keys('gimamugae1765')
+driver.find_element_by_name('username').send_keys('아이디입력')
 
 # to input password
-driver.find_element_by_name('password').send_keys('alfkzmfak50')
+driver.find_element_by_name('password').send_keys('비밀번호 입력')
 
 # login button click
 driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button/div').click()
@@ -43,7 +43,7 @@ n = 1
 
 while True: 
     try:
-        if int(tag_n) > n:
+        if int(search_n) > n:
             sleep(4)
 
             #포스트 게시글 파싱
@@ -87,7 +87,7 @@ while True:
             driver.find_element_by_link_text('다음').click() #다음 포스트 클릭
                     
         else:
-            if n >= int(tag_n): #tag_n 입력값만큼 크롤링을 하였다면 크롤링 중지
+            if n >= int(search_n): #search_n 입력값만큼 크롤링을 하였다면 크롤링 중지
                 break
 
             else:
