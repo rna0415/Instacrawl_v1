@@ -8,7 +8,7 @@ import random
 import os
 import unicodedata 
 
-driver = webdriver.Chrome('chromedriver')
+driver = webdriver.Chrome('chromedriver') #구글크롬 버전에 맞는 크롬드라이버를 다운받은 후 같은 이 코드와 같은 디렉토리에 옮기거나 괄호안에 디렉토리를 넣으세요
 
 search_word = input('Keyword: ') #키워드 검색
 search_n = input('Post_Number: ') #크롤링할 포스트 갯수 지정
@@ -36,7 +36,7 @@ sleep(2)
 
 driver.get(baseUrl)
 
-driver.find_elements_by_css_selector('._9AhH0')[0].click() #첫번째 게시글 클릭
+driver.find_elements_by_css_selector('._9AhH0')[0].click() 
 # tags = driver.find_elements_by_css_selector('.xil3i') 
 
 n = 1
@@ -47,7 +47,7 @@ while True:
             sleep(4)
 
             #포스트 게시글 파싱
-            test = driver.find_element_by_css_selector(".XQXOT .C4VMK")
+            test = driver.find_element_by_css_selector(".XQXOT .C4VMK") #게시글 작성자 포스트 영역
             table_html = test.get_attribute('innerHTML')
             soup = BeautifulSoup(table_html, 'html.parser')
             content_html = str(soup.select('span')[-1])
@@ -74,7 +74,7 @@ while True:
             content_html = content_html.replace("</a>", "")
             # print("네번째content_html: ",content_html)
 
-            save_file_path_hash = "./Hashtag_IPC/패션/" + str(search_word) + '.txt' #경로지정
+            save_file_path_hash = "./지정경로/" + str(search_word) + '.txt' #경로지정
             f = open(save_file_path_hash, 'a', encoding='utf-8', newline="")
 
             uni1 = unicodedata.normalize('NFD',content_html) #자모음 분리
