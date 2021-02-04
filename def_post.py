@@ -11,7 +11,8 @@ import time
 import re
 import random
 
-#개발에 쓰일 인스타그램 게시글 전체 탐색
+# 개발에 쓰일 인스타그램 게시글 전체 탐색_계정당 모든 사진, 영상들 url을 가져오는 함수
+# 중간에 렉이 걸리면 처음부터 다시 시작한다.
 def count_func(body):
     while True:
         while True:
