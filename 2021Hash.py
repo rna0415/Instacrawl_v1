@@ -36,6 +36,7 @@ sleep(2)
 
 driver.get(baseUrl)
 
+# click the first post
 driver.find_elements_by_css_selector('._9AhH0')[0].click() 
 # tags = driver.find_elements_by_css_selector('.xil3i') 
 
@@ -54,13 +55,13 @@ while True:
             # print("첫번째content_html: ",content_html)
             sleep(2)
 
-            # # 작성글에서 앞, 뒤의 span부분 제거
+            # 작성글에서 앞, 뒤의 span부분 제거
             pattern2 = re.compile(r"<span class.+?>")
             content_html = re.sub(pattern2, "", content_html)
             content_html = content_html.replace("</span>", "")
             # print("두번쨰content_html: ",content_html)
 
-            # # 작성글에서 </br> 제거
+            # 작성글에서 </br> 제거
             pattern3 = re.compile(r"<br/>")
             br_list = re.findall(pattern3, content_html)
             # print("brlist: ",br_list)
@@ -68,17 +69,19 @@ while True:
                 content_html = content_html.replace(br, " ")
             # print("세번째content_html: ",content_html)
             
-            # # 작성글에서 </a> 제거
+            # 작성글에서 </a> 제거
             pattern4 = re.compile(r"<a class.+?>")
             content_html = re.sub(pattern4, "", content_html)
             content_html = content_html.replace("</a>", "")
             # print("네번째content_html: ",content_html)
-
+            
+            #저장할 위치 정하기
             save_file_path_hash = "./지정경로/" + str(search_word) + '.txt' #경로지정
             f = open(save_file_path_hash, 'a', encoding='utf-8', newline="")
 
             uni1 = unicodedata.normalize('NFD',content_html) #자모음 분리
             uni2 = unicodedata.normalize('NFC',uni1) #자모음 재합성
+            
             f.write(uni2)
             f.write('\n')
             n+=1
