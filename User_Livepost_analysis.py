@@ -1,7 +1,7 @@
-
-#This code is to get data of user live post
-#Type in your login information and type in user ID that you want to investigate after running the code.
-#You will get the data type of the user's liveposts.
+# Made by Mose Gu 'http://cpslab.skku.edu/people-Moses-Gu.php'
+# This code is to get data of user live post
+# Type in your login information and type in user ID that you want to investigate after running the code.
+# You will get the data type of the user's liveposts.
 
 from selenium import webdriver
 from time import sleep
