@@ -36,56 +36,10 @@ sleep(2)
 
 driver.get(baseUrl)
 
-driver.find_elements_by_css_selector('._9AhH0')[0].click()
-tags = driver.find_elements_by_css_selector('.xil3i')
-#####
-# comments = driver.find_elements_by_css_selector('.P9YgZ .C4VMK span')
-# test = driver.find_element_by_css_selector(".XQXOT .C4VMK")
-# table_html = test.get_attribute('innerHTML')
-# soup = BeautifulSoup(table_html, 'html.parser')
-# content_html = str(soup.select('span')[-1])
-# print("첫번째content_html: ",content_html)
-# sleep(2)
+driver.find_elements_by_css_selector('._9AhH0')[0].click() #첫번째 게시글 클릭
+# tags = driver.find_elements_by_css_selector('.xil3i') 
 
-# # # 작성글에서 앞, 뒤의 span부분 제거
-# pattern2 = re.compile(r"<span class.+?>")
-# content_html = re.sub(pattern2, "", content_html)
-# content_html = content_html.replace("</span>", "")
-# print("두번쨰content_html: ",content_html)
-
-# # # 작성글에서 </br> 제거
-# pattern3 = re.compile(r"<br/>")
-# br_list = re.findall(pattern3, content_html)
-# print("brlist: ",br_list)
-
-# for br in br_list:
-#     content_html = content_html.replace(br, " ")
-# print("세번째content_html: ",content_html)
-
-# pattern4 = re.compile(r"<a class.+?>")
-# content_html = re.sub(pattern4, "", content_html)
-# content_html = content_html.replace("</a>", "")
-# print("네번째content_html: ",content_html)
-
-# save_file_path_hash = "./Hashtag_IPC/" + str(search_word) + '.txt'
-# f = open(save_file_path_hash, 'w', encoding='utf-8-sig', newline="")
-
-# f.write(content_html)
-# f.write('\n')
-######
-# for i in comments:
-#     print("댓글은?",i.text)
-# comment_list = []
-tag_list = []
 n = 1
-
-# save_file_path_hash = "./Hashtag_IPC/" + str(search_word) + '.txt'
-# f = open(save_file_path_hash, 'w', encoding='utf-8-sig', newline="")
-
-# for i in int(tag_n):
-#     print(i.text)
-#     tag_list.append(i.text)
-
 
 while True: 
     try:
@@ -123,34 +77,23 @@ while True:
             save_file_path_hash = "./Hashtag_IPC/패션/" + str(search_word) + '.txt' #경로지정
             f = open(save_file_path_hash, 'a', encoding='utf-8', newline="")
 
-            # uni1 = unicodedata.normalize('NFD',content_html) #자모음 분리
-            # uni2 = unicodedata.normalize('NFC',uni1) #자모음 재합성
-            f.write(content_html)
+            uni1 = unicodedata.normalize('NFD',content_html) #자모음 분리
+            uni2 = unicodedata.normalize('NFC',uni1) #자모음 재합성
+            f.write(uni2)
             f.write('\n')
             n+=1
             print(str(search_word),n,'번째post')
 
-            driver.find_element_by_link_text('다음').click()
+            driver.find_element_by_link_text('다음').click() #다음 포스트 클릭
                     
         else:
-            if n >= int(tag_n):
+            if n >= int(tag_n): #tag_n 입력값만큼 크롤링을 하였다면 크롤링 중지
                 break
 
             else:
-                driver.execute_script('windows.scrollTo(0, document.body.scrollHeight)')
+                driver.execute_script('windows.scrollTo(0, document.body.scrollHeight)') #화면 스크롤 조정
     
     except:
         pass
 driver.close()
 print("크롤링완료")
-# print(len(tag_list))
-# print(tag_list)
-# for taggy in tag_list:
-#     f.write(taggy)
-#     f.write('\n')
-
-# for commy in comment_list:
-#     f1.write(commy)
-#     f1.write('\n')
-#     print(i, content_html)    
-# driver.close()
