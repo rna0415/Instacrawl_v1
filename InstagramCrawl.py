@@ -1,5 +1,4 @@
-# made by Mose Gu
-# http://cpslab.skku.edu/people-Moses-Gu.php
+# Made by Mose Gu 'http://cpslab.skku.edu/people-Moses-Gu.php'
 
 import requests
 import re
